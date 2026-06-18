@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JoJose Sail | Carrito</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div id="site-navbar"></div>
+
+      <main class="cart-main">
+        <section class="cart-header">
+          <p class="eyebrow">Tu compra</p>
+          <h1>Carrito</h1>
+          <p>Revisa tus productos antes de finalizar la compra.</p>
+        </section>
+
+        <section class="cart-layout" aria-label="Vista completa del carrito">
+          <div class="cart-list" id="cart-list">
+            <article class="cart-item" data-price="89.99" data-qty="1">
+              <div class="cart-thumb" aria-hidden="true"></div>
+              <div class="cart-product-info">
+                <h2>Sneaker Horizon</h2>
+                <p>Calzado premium</p>
+              </div>
+              <p class="cart-unit-price">EUR 89.99</p>
+              <label class="qty-wrap" for="qty-1">
+                <span class="sr-only">Cantidad de Sneaker Horizon</span>
+                <input id="qty-1" class="qty-input" type="number" min="1" value="1" />
+              </label>
+              <p class="cart-line-total">EUR 89.99</p>
+            </article>
+
+            <article class="cart-item" data-price="49.99" data-qty="2">
+              <div class="cart-thumb" aria-hidden="true"></div>
+              <div class="cart-product-info">
+                <h2>Camisa Route</h2>
+                <p>Algodon organico</p>
+              </div>
+              <p class="cart-unit-price">EUR 49.99</p>
+              <label class="qty-wrap" for="qty-2">
+                <span class="sr-only">Cantidad de Camisa Route</span>
+                <input id="qty-2" class="qty-input" type="number" min="1" value="2" />
+              </label>
+              <p class="cart-line-total">EUR 99.98</p>
+            </article>
+
+            <article class="cart-item" data-price="64.99" data-qty="1">
+              <div class="cart-thumb" aria-hidden="true"></div>
+              <div class="cart-product-info">
+                <h2>Pantalon Metro</h2>
+                <p>Corte recto</p>
+              </div>
+              <p class="cart-unit-price">EUR 64.99</p>
+              <label class="qty-wrap" for="qty-3">
+                <span class="sr-only">Cantidad de Pantalon Metro</span>
+                <input id="qty-3" class="qty-input" type="number" min="1" value="1" />
+              </label>
+              <p class="cart-line-total">EUR 64.99</p>
+            </article>
+          </div>
+
+          <aside class="cart-summary" aria-label="Cuadro de totalizacion">
+            <h2>Resumen</h2>
+            <dl>
+              <div>
+                <dt>Subtotal</dt>
+                <dd id="subtotal">EUR 0.00</dd>
+              </div>
+              <div>
+                <dt>Impuestos (21%)</dt>
+                <dd id="taxes">EUR 0.00</dd>
+              </div>
+              <div class="total-row">
+                <dt>Total</dt>
+                <dd id="total">EUR 0.00</dd>
+              </div>
+            </dl>
+            <button class="buy-button" type="button">Comprar</button>
+          </aside>
+        </section>
+      </main>
+
+      <div id="site-footer"></div>
+    </div>
+
+    <script src="components.js"></script>
+    <script src="cart.js"></script>
+  </body>
+</html>
