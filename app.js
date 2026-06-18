@@ -5,6 +5,8 @@ const state = {
   cartCount: 0
 };
 
+const CART_STORAGE_KEY = "store_cart_state";
+
 const refs = {
   image: document.getElementById("productImage"),
   category: document.getElementById("productCategory"),
@@ -27,6 +29,48 @@ function formatPrice(value, currency) {
     style: "currency",
     currency
   }).format(value);
+}
+
+function saveCartState(lastQuantity) {
+  if (!state.product) {
+    return;
+  }
+
+  const payload = {
+    count: state.cartCount,
+    product: {
+      id: state.product.id,
+      name: state.product.name,
+      code: state.product.code,
+      price: state.product.price,
+      currency: state.product.currency
+    },
+    selection: {
+      size: state.selectedSize,
+      color: state.selectedColor
+    },
+    lastQuantity,
+    updatedAt: new Date().toISOString()
+  };
+
+  localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(payload));
+}
+
+function loadCartState() {
+  const raw = localStorage.getItem(CART_STORAGE_KEY);
+  if (!raw) {
+    return;
+  }
+
+  try {
+    const parsed = JSON.parse(raw);
+    if (Number.isFinite(parsed.count) && parsed.count >= 0) {
+      state.cartCount = parsed.count;
+      refs.cartCount.textContent = String(state.cartCount);
+    }
+  } catch (error) {
+    console.error("No se pudo recuperar el carrito guardado.", error);
+  }
 }
 
 function renderBaseInfo() {
@@ -103,11 +147,14 @@ function setupCartBehavior() {
     state.cartCount += quantity;
     refs.cartCount.textContent = String(state.cartCount);
     refs.cartMessage.textContent = `${quantity} unidad(es) agregadas. Talla ${state.selectedSize}, color ${state.selectedColor}.`;
+    saveCartState(quantity);
   });
 }
 
 async function initProductView() {
   try {
+    loadCartState();
+
     const response = await fetch("products.json", { cache: "no-store" });
     if (!response.ok) {
       throw new Error("No se pudo cargar products.json");

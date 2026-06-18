@@ -244,6 +244,23 @@ body {
   background: linear-gradient(90deg, var(--accent-dark), #cc5932);
 }
 
+.go-checkout {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #314244;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid #ccbfa8;
+  border-radius: 12px;
+  padding: 11px 14px;
+  background: #fff;
+  transition: background 0.2s ease;
+}
+
+.go-checkout:hover {
+  background: #f8f1e4;
+}
+
 .cart-message {
   min-height: 24px;
   margin: 14px 0 0;

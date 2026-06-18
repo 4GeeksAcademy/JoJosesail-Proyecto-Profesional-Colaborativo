@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | Tienda Virtual</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+  <main class="checkout-page">
+    <header class="checkout-header">
+      <p class="brand">Atelier Canvas</p>
+      <h1>Formulario de pago</h1>
+      <p class="subtitle">Completa tu compra en 3 pasos rapidos y seguros.</p>
+      <p class="sandbox-badge">Pasarela de pago en modo sandbox</p>
+    </header>
+
+    <section class="checkout-shell" aria-label="Flujo de pago en tres pasos">
+      <aside class="order-summary" aria-label="Resumen del pedido">
+        <h2>Resumen del pedido</h2>
+        <p class="summary-line"><span>Producto</span><strong id="summaryProduct">-</strong></p>
+        <p class="summary-line"><span>Codigo</span><strong id="summaryCode">-</strong></p>
+        <p class="summary-line"><span>Talla</span><strong id="summarySize">-</strong></p>
+        <p class="summary-line"><span>Color</span><strong id="summaryColor">-</strong></p>
+        <p class="summary-line"><span>Cantidad</span><strong id="summaryQty">0</strong></p>
+        <p class="summary-line total"><span>Total</span><strong id="summaryTotal">$0.00</strong></p>
+      </aside>
+
+      <ol class="stepper" id="stepper">
+        <li class="step active" data-step="1">1. Datos personales</li>
+        <li class="step" data-step="2">2. Direccion de entrega</li>
+        <li class="step" data-step="3">3. Pago con tarjeta</li>
+      </ol>
+
+      <form id="checkoutForm" novalidate>
+        <section class="form-step active" data-step="1" aria-label="Datos personales">
+          <div class="field-grid two-col">
+            <label>
+              Nombre
+              <input type="text" name="firstName" required autocomplete="given-name" placeholder="Ej. Laura">
+            </label>
+            <label>
+              Apellido
+              <input type="text" name="lastName" required autocomplete="family-name" placeholder="Ej. Garcia">
+            </label>
+          </div>
+          <div class="field-grid two-col">
+            <label>
+              Correo electronico
+              <input type="email" name="email" required autocomplete="email" placeholder="correo@ejemplo.com">
+            </label>
+            <label>
+              Telefono
+              <input type="tel" name="phone" required autocomplete="tel" placeholder="+34 600 123 456">
+            </label>
+          </div>
+        </section>
+
+        <section class="form-step" data-step="2" aria-label="Direccion de entrega">
+          <div class="field-grid one-col">
+            <label>
+              Direccion
+              <input type="text" name="address" required autocomplete="address-line1" placeholder="Calle, numero y piso">
+            </label>
+          </div>
+          <div class="field-grid three-col">
+            <label>
+              Ciudad
+              <input type="text" name="city" required autocomplete="address-level2" placeholder="Madrid">
+            </label>
+            <label>
+              Provincia / Estado
+              <input type="text" name="region" required autocomplete="address-level1" placeholder="Madrid">
+            </label>
+            <label>
+              Codigo postal
+              <input type="text" name="postalCode" required autocomplete="postal-code" placeholder="28001">
+            </label>
+          </div>
+          <div class="field-grid two-col">
+            <label>
+              Pais
+              <input type="text" name="country" required autocomplete="country-name" placeholder="Espana">
+            </label>
+            <label>
+              Referencia de entrega (opcional)
+              <input type="text" name="deliveryRef" placeholder="Edificio, puerta, etc.">
+            </label>
+          </div>
+        </section>
+
+        <section class="form-step" data-step="3" aria-label="Pago con tarjeta">
+          <div class="field-grid one-col">
+            <label>
+              Nombre en la tarjeta
+              <input type="text" name="cardName" required autocomplete="cc-name" placeholder="Como aparece en la tarjeta">
+            </label>
+          </div>
+          <div class="field-grid one-col">
+            <label>
+              Numero de tarjeta
+              <input type="text" name="cardNumber" required autocomplete="cc-number" inputmode="numeric" maxlength="19" placeholder="1234 5678 9012 3456">
+            </label>
+          </div>
+          <div class="field-grid two-col">
+            <label>
+              Vencimiento (MM/AA)
+              <input type="text" name="expiry" required autocomplete="cc-exp" inputmode="numeric" maxlength="5" placeholder="08/28">
+            </label>
+            <label>
+              CVV
+              <input type="password" name="cvv" required autocomplete="cc-csc" inputmode="numeric" maxlength="4" placeholder="123">
+            </label>
+          </div>
+        </section>
+
+        <p class="step-error" id="stepError" aria-live="polite"></p>
+
+        <div class="actions">
+          <button type="button" id="prevBtn" class="btn ghost" disabled>Anterior</button>
+          <button type="button" id="nextBtn" class="btn primary">Siguiente</button>
+          <button type="submit" id="submitBtn" class="btn success hidden">Pagar ahora</button>
+        </div>
+      </form>
+
+      <p class="success-message hidden" id="successMessage" aria-live="polite">
+        Pago procesado con exito. Gracias por tu compra.
+      </p>
+    </section>
+  </main>
+
+  <script src="checkout.js" defer></script>
+</body>
+</html>
