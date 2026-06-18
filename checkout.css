@@ -1,0 +1,245 @@
+:root {
+  --bg-top: #f7f4ea;
+  --bg-bottom: #e4efe8;
+  --card: #fffaf1;
+  --ink: #1d282a;
+  --muted: #617173;
+  --line: #dbcdb6;
+  --accent: #c7522a;
+  --accent-strong: #a33f20;
+  --success: #2f6f4e;
+  --radius: 18px;
+  --shadow: 0 16px 42px rgba(34, 30, 25, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Manrope", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 12%, rgba(199, 82, 42, 0.18), transparent 34%),
+    radial-gradient(circle at 88% 88%, rgba(66, 131, 104, 0.2), transparent 38%),
+    linear-gradient(165deg, var(--bg-top), var(--bg-bottom));
+}
+
+.checkout-page {
+  width: min(1000px, 92vw);
+  margin: 42px auto;
+}
+
+.checkout-header h1 {
+  margin: 8px 0 6px;
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(2rem, 4vw, 2.7rem);
+}
+
+.brand {
+  margin: 0;
+  color: var(--muted);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.subtitle {
+  margin: 0;
+  color: #3f4f51;
+}
+
+.sandbox-badge {
+  display: inline-block;
+  margin: 12px 0 0;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(199, 82, 42, 0.12);
+  color: #8b3219;
+  font-weight: 800;
+  font-size: 0.82rem;
+}
+
+.checkout-shell {
+  margin-top: 22px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) + 4px);
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+
+.order-summary {
+  margin-bottom: 18px;
+  border: 1px solid #d3c6af;
+  border-radius: 14px;
+  padding: 14px;
+  background: linear-gradient(180deg, rgba(255, 245, 225, 0.65), rgba(246, 252, 248, 0.8));
+}
+
+.order-summary h2 {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 7px 0;
+  color: #334345;
+}
+
+.summary-line.total {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #d7ccb8;
+  font-size: 1.05rem;
+}
+
+.stepper {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+.step {
+  border: 1px solid #cfc2ab;
+  border-radius: 12px;
+  background: #fff;
+  color: #5b6769;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px 8px;
+}
+
+.step.active {
+  background: linear-gradient(90deg, var(--accent), #d8683f);
+  color: #fff;
+  border-color: transparent;
+}
+
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+}
+
+.field-grid {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.two-col {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.three-col {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.one-col {
+  grid-template-columns: 1fr;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-weight: 700;
+  color: #344446;
+}
+
+input {
+  width: 100%;
+  border: 1px solid #cabaa0;
+  border-radius: 12px;
+  padding: 11px 12px;
+  font-size: 1rem;
+  background: #fff;
+}
+
+input:focus {
+  outline: 2px solid rgba(199, 82, 42, 0.3);
+  outline-offset: 1px;
+}
+
+.step-error {
+  min-height: 22px;
+  margin: 8px 0 0;
+  color: #aa3527;
+  font-weight: 700;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.btn {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-size: 0.98rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn.ghost {
+  border: 1px solid #cdbfa7;
+  background: #fff;
+  color: #304143;
+}
+
+.btn.primary {
+  color: #fff;
+  background: linear-gradient(90deg, var(--accent), #df6f46);
+}
+
+.btn.success {
+  color: #fff;
+  background: linear-gradient(90deg, var(--success), #3a8660);
+}
+
+.success-message {
+  margin: 16px 0 4px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(47, 111, 78, 0.14);
+  color: #1f5f3d;
+  font-weight: 700;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .stepper {
+    grid-template-columns: 1fr;
+  }
+
+  .three-col,
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-shell {
+    padding: 18px;
+  }
+}
