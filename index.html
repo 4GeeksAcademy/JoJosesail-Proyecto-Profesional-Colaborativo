@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vista de Producto | Tienda Virtual</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="product-page">
+    <header class="top-bar" aria-label="Resumen del carrito">
+      <p class="store-name">Atelier Canvas</p>
+      <p class="cart-status">Carrito: <span id="cartCount" class="cart-count">0</span></p>
+    </header>
+
+    <section class="product-card" aria-label="Detalle del producto">
+      <div class="product-grid">
+        <div class="product-image-column">
+          <img
+            id="productImage"
+            class="product-image"
+            src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80"
+            alt="Camiseta minimalista color marfil"
+          >
+        </div>
+
+        <div class="product-info-column">
+          <p class="product-category" id="productCategory">Coleccion Essentials</p>
+          <h1 class="product-name" id="productName">Camiseta Classic Linen</h1>
+
+          <dl class="product-meta">
+            <div>
+              <dt>Codigo</dt>
+              <dd id="productCode">CLN-2026-017</dd>
+            </div>
+            <div>
+              <dt>Talla</dt>
+              <dd id="selectedSizeLabel">M</dd>
+            </div>
+          </dl>
+
+          <p class="product-price" id="productPrice">$39.99</p>
+
+          <section class="variant-block" aria-label="Variantes de talla y color">
+            <div>
+              <p class="variant-title">Tallas disponibles</p>
+              <div id="sizeOptions" class="size-options"></div>
+            </div>
+            <div>
+              <p class="variant-title">Color</p>
+              <div id="colorOptions" class="color-options"></div>
+            </div>
+          </section>
+
+          <div class="purchase-controls" aria-label="Controles de compra">
+            <label for="quantity" class="quantity-label">Cantidad</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1" class="quantity-input">
+            <button type="button" class="add-to-cart" id="addToCart">Agregar al carrito</button>
+          </div>
+
+          <p class="cart-message" id="cartMessage" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <section class="product-details" aria-label="Descripcion detallada">
+        <h2>Descripcion detallada</h2>
+        <article>
+          <h3>Materiales</h3>
+          <p id="materialsText">Confeccionada en lino premium y algodon peinado.</p>
+        </article>
+        <article>
+          <h3>Uso recomendado</h3>
+          <ul class="scenario-list" id="scenarioList"></ul>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
