@@ -1,0 +1,26 @@
+{
+  "id": "cln-2026-017",
+  "category": "Coleccion Essentials",
+  "name": "Camiseta Classic Linen",
+  "code": "CLN-2026-017",
+  "price": 39.99,
+  "currency": "USD",
+  "image": {
+    "src": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80",
+    "alt": "Camiseta minimalista color marfil"
+  },
+  "sizes": ["S", "M", "L", "XL"],
+  "colors": [
+    { "name": "Marfil", "hex": "#f4ead8" },
+    { "name": "Terracota", "hex": "#cc6b4b" },
+    { "name": "Oliva", "hex": "#7a8c5f" }
+  ],
+  "description": {
+    "materials": "Confeccionada en lino premium (70%) y algodon peinado (30%), con acabado transpirable, costuras reforzadas y tacto suave para uso prolongado.",
+    "recommendedUse": [
+      "Oficina casual y reuniones informales",
+      "Salidas de fin de semana y viajes ligeros",
+      "Eventos de dia con clima templado o calido"
+    ]
+  }
+}
